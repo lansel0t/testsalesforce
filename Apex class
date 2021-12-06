@@ -1,0 +1,15 @@
+public with sharing class vContactListController {
+
+    public List<vContact__c> vCont{get; set;}
+    public Integer truedate{get; set;}
+
+    public vContactListController (){
+        vCont = getvContact();
+    }
+    
+    private List<vContact__c> getvContact(){
+        List<vContact__c> listContact = [SELECT Contact_ID__c, Name__c, BirthDate__c, PhoneNumber__c FROM vContact__c WHERE PhoneNumber__c != NULL AND Case_age__c >= 18 ORDER BY Name__c];
+        return listContact;
+    }
+
+}

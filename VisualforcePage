@@ -1,0 +1,22 @@
+<apex:page id="DisplayContact" controller="vContactListController" >
+    <apex:form >
+     <apex:pageBlock title="List Contacts">
+        <apex:pageblockSection columns="1">
+             <apex:pageBlockTable value="{!vCont}" var="Cont">
+                 <apex:column headerValue="Contact ID">
+                        <apex:param name="cParam" value="{!Cont.Contact_ID__c}"/>
+                 </apex:column>
+                 <apex:column headerValue="Name">
+                        <apex:outputText value="{!Cont.Name__c}"/>
+                 </apex:column>
+                 <apex:column headerValue="BirthDate">
+                        <apex:outputText value="{!Cont.BirthDate__c}"/>
+                 </apex:column>
+                 <apex:column headerValue="MobilePhone">
+                        <apex:outputText value="{!Cont.PhoneNumber__c}"/>
+                 </apex:column>
+             </apex:pageBlockTable>
+        </apex:pageblockSection>
+      </apex:pageBlock>
+    </apex:form>
+</apex:page>
